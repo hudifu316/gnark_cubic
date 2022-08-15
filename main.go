@@ -6,11 +6,12 @@ import (
 	"github.com/consensys/gnark/backend/groth16"
 	"github.com/consensys/gnark/frontend"
 	"github.com/consensys/gnark/frontend/cs/r1cs"
+	"gnark_sample/cubic"
 )
 
 func main() {
 	fmt.Println("Cubic sample")
-	var myCircuit Circuit
+	var myCircuit cubic.Circuit
 	r1cs, _ := frontend.Compile(ecc.BN254, r1cs.NewBuilder, &myCircuit)
 
 	//1.Setup
@@ -19,7 +20,7 @@ func main() {
 
 	//2.Prove
 	fmt.Println("2.Prove")
-	assignment := &Circuit{
+	assignment := &cubic.Circuit{
 		X: 3,
 		Y: 35,
 	}
